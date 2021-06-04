@@ -3,8 +3,14 @@
         <Toolbar></Toolbar>
 
         <main>
+            <!-- 左侧列表 -->
             <section class="left">
                 <ComponentList />
+            </section>
+
+            <!-- 中间画布 -->
+            <section class="center">
+                <div class="content"></div>
             </section>
         </main>
     </div>
