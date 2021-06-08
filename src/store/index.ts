@@ -1,16 +1,20 @@
 import { createStore } from "vuex";
-
+import contextmenu from "./contextmenu"
 const defaultState = {
-    count: 0,
+    // 点击画布时是否点中组件，主要用于取消选中组件用
+    // 如果没点击组件，并且在画布空白处弹起鼠标，则取消当前组件的选中状态
+    isClickComponent: false,
+    ...contextmenu.state
 };
 export default createStore({
     state() {
         return defaultState;
     },
     mutations: {
-        increment(state: typeof defaultState) {
-            state.count++;
-        },
+        ...contextmenu.mutations,
+        setClickComponentStatus(state: any, status) {
+            state.isClickComponent = status
+        }
     },
     actions: {
         increment(context) {
@@ -18,8 +22,6 @@ export default createStore({
         },
     },
     getters: {
-        double(state: typeof defaultState) {
-            return 2 * state.count;
-        },
-    },
+        
+    }
 });
