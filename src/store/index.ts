@@ -14,6 +14,11 @@ export default createStore({
         ...contextmenu.mutations,
         setClickComponentStatus(state: any, status) {
             state.isClickComponent = status
+        },
+        // 获取当前选中的组件以及下标index
+        setCurComponent(state: any, { component, index }) {
+            state.curComponent = component,
+            state.curComponentIndex = index
         }
     },
     actions: {
