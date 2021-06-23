@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue";
 import { useStore } from "vuex";
-import { Props } from "./tsType"
+// import { Props } from "./tsType"
 export default defineComponent({
     name: "Shape",
     props: {
@@ -48,7 +48,11 @@ export default defineComponent({
             }
 
             e.stopPropagation();
-            store.commit('setCurComponent', { component: props.element, index: props.index })
+            store.commit('setCurComponent', { component: props.element, index: props.index });
+            if (props.element.isLock) return;
+
+            // cursors = getCursor();
+
         }
         return {
             selectCurComponent,
